@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8" ?>  
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >  
+<mapper namespace="com.finance.dao.UserDao"> 
+ 
+    <resultMap id="resultUserMap" type="com.finance.vo.UserVO">  
+        <id column="pk_user" property="pk_user" jdbcType="INTEGER" />  
+        <result column="loginid" property="loginid" jdbcType="VARCHAR" /> 
+        <result column="password" property="password" jdbcType="VARCHAR" />
+        <result column="name" property="name" jdbcType="VARCHAR" /> 
+        <!--  
+        <result column="access" property="access" jdbcType="INTEGER" />
+        <result column="creatime" property="creatime" jdbcType="TIMESTAMP" /> 
+        <result column="creatime" property="beginTime" jdbcType="TIMESTAMP" />  
+        <result column="creatime" property="endTime" jdbcType="TIMESTAMP" /> 
+        -->    
+    </resultMap>  
+    
+    
+    
+    <!-- 根据主键查询用户信息 -->
+    <select id="selectUserById" parameterType="java.lang.Integer" resultMap="resultUserMap">
+       select * from user where pk_user = #{pk_user}
+	</select>
+	
+	<!-- 根据登录账户查询用户信息 -->
+	<select id="selectUserByLoginId" parameterType="java.lang.String" resultMap="resultUserMap">
+       select * from user where loginid = #{loginid}
+	</select>
+	
+	<!-- 查询用户的总数 -->
+	<select id="selectUserCount" parameterType="com.finance.condition.UserQueryCondition" resultType="java.lang.Integer">
+       select count(*) from user 
+       <where>
+       	  <trim prefixOverrides="and">  
+                <if test="loginid != null"> and loginid = #{loginid}</if>  
+                <if test="name != null">and name = #{name}</if>  
+                <if test="access != null">and access = #{access}</if>                  
+                <if test="beginTime != null and endTime != null">and creatime between date_format(#{beginTime},'%Y%m%d') and date_format(#{endTime},'%Y%m%d')+1</if> 
+                <if test="dr != null">and dr = #{dr}</if>
+          </trim>  
+       </where>
+	</select>
+	
+	<!-- 查询所有用户 -->
+	<select id="selectAllUser" resultMap="resultUserMap">
+       select * from user where dr = 0
+	</select>
+	
+	<!-- <![CDATA[ ]]> -->
+	<!-- 根据查询条件查询用户 -->
+	<select id="queryUser" parameterType="com.finance.condition.UserQueryCondition" resultMap="resultUserMap">
+       select * from user 
+      
+       <where>
+       	  <trim prefixOverrides="and">  
+                <if test="loginid != null"> and loginid = #{loginid}</if>  
+                <if test="name != null">and name = #{name}</if>  
+                <if test="access != null">and access = #{access}</if>                  
+                <if test="beginTime != null and endTime != null">and creatime between date_format(#{beginTime},'%Y%m%d') and date_format(#{endTime},'%Y%m%d')+1</if> 
+                <if test="dr != null">and dr = #{dr}</if>
+          </trim>  
+       </where>
+        
+       <if test="offset != null and rows != null">  
+            limit #{offset}, #{rows}  
+        </if>  
+	</select>
+	
+	<!-- 新增用户 -->
+	<insert  id="addUser" parameterType="com.finance.vo.UserVO">
+       insert into user(loginid,password,name,access) 
+       values(#{loginid},#{password},#{name},#{access})
+	</insert >
+	
+	<!-- 更新用户 -->
+	<update id="updateUserById" parameterType="com.finance.vo.UserVO">  
+        update user  
+        <set>  
+            <if test="loginid != null">loginid = #{loginid},</if>  
+            <if test="name != null">name = #{name},</if>   
+            <if test="access != null">access = #{access},</if> 
+            <if test="modifytime != null">modifytime = #{modifytime},</if> 
+            <if test="dr != null">dr = 1,</if>  
+        </set>  
+        where pk_user = #{pk_user}  
+    </update>  
+    
+
+</mapper>  
