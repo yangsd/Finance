@@ -8,6 +8,7 @@
 <script type="text/javascript" src="/Finance/plugins/jquery-2.1.4.js"></script>
 <script type="text/javascript" src="/Finance/plugins/jquery.easyui.min.js"></script>
 
+
 <style>
 *{
 	font-size:12px;
@@ -39,6 +40,9 @@ h2 {
   background-repeat: repeat-x;
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#EFF5FF,endColorstr=#E0ECFF,GradientType=0);
 }
+.menu-item{
+	background: #CEDEFA
+} 
 </style>
 <script>
 	function addTab(title, url){
@@ -53,6 +57,8 @@ h2 {
 			});
 		}
 	}
+	
+}
 </script>
 </head>
 
@@ -62,7 +68,24 @@ h2 {
 			${munehtml}
 		</div>				
 	</div>
-	<div data-options="region:'west',split:true,title:'West'" style="width:150px;padding:10px;">west content</div>
+	
+	<div data-options="region:'west',split:true,title:'West'" style="width:150px;">
+		<div class="easyui-accordion" data-options="fit:true,border:false">
+		
+            <div title="Title1" style="overflow:auto;" >
+                <div class="menu-item">content1</div>
+                <div class="menu-item">content1</div>
+                <div>test</div>
+            </div>
+            <div title="Title2" data-options="selected:true" style="overflow:auto;">
+                <div>content2</div>
+            </div>
+            <div title="Title3" style="overflow:auto;">
+                content3
+            </div>
+        </div>
+	</div>
+	
 	<div data-options="region:'center',border:false" style="overflow:hidden">
 		<div id="tt" class="easyui-tabs" data-options="fit:true">
 		<div title="主页"> </div>
