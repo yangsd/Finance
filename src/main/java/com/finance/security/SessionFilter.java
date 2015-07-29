@@ -20,7 +20,7 @@ import com.finance.login.SingleOnline;
 /**
  * 
  * @author sdyang
- * @date 2015年7月22日 下午4:08:36
+ * @date 2015骞�鏈�2鏃�涓嬪崍4:08:36
  */
 public class SessionFilter implements Filter {
 
@@ -90,7 +90,7 @@ public class SessionFilter implements Filter {
 	}
 
 	private boolean isStaticFile(String context) {
-		String[] suffixs = new String[] { ".css", ".js", ".jpg", ".gif", ".png",".xls" };
+		String[] suffixs = new String[] { ".css", ".js", ".jpg", ".gif", ".png",".xls",".wof",".ttf" };
 		for (String suffix : suffixs) {
 			if (context.endsWith(suffix)) {
 				return true;

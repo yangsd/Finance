@@ -32,8 +32,14 @@
 	    <servlet-name>default</servlet-name>  
 	    <url-pattern>*.xls</url-pattern>     
 	</servlet-mapping>
-	
-	
+	<servlet-mapping>   
+	    <servlet-name>default</servlet-name>  
+	    <url-pattern>*.wof</url-pattern>     
+	</servlet-mapping>
+	<servlet-mapping>   
+	    <servlet-name>default</servlet-name>  
+	    <url-pattern>*.ttf</url-pattern>     
+	</servlet-mapping>
 	<mime-mapping>
 		<extension>json</extension>
 		<mime-type>text/json</mime-type>
