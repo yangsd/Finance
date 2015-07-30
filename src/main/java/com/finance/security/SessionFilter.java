@@ -90,7 +90,7 @@ public class SessionFilter implements Filter {
 	}
 
 	private boolean isStaticFile(String context) {
-		String[] suffixs = new String[] { ".css", ".js", ".jpg", ".gif", ".png",".xls",".wof",".ttf" };
+		String[] suffixs = new String[] { ".css", ".js", ".jpg", ".gif", ".png",".xls",".woff",".ttf" };
 		for (String suffix : suffixs) {
 			if (context.endsWith(suffix)) {
 				return true;

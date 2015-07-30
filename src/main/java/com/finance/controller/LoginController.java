@@ -53,8 +53,14 @@ public class LoginController {
 	}
 
 	@RequestMapping(value = "/index", method = RequestMethod.GET)
-	public ModelAndView getHomePage() {
+	public ModelAndView getIndexPage() {
 		ModelAndView mav = new ModelAndView("index");
+		return mav;
+	}
+	
+	@RequestMapping(value = "/home", method = RequestMethod.GET)
+	public ModelAndView getHomePage() {
+		ModelAndView mav = new ModelAndView("home");
 		return mav;
 	}
 
