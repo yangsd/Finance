@@ -1,10 +1,9 @@
 package com.finance.exception;
 
-
 /**
  * 
  * @author sdyang
- * @date 2015Äê6ÔÂ3ÈÕ ÉÏÎç8:41:45
+ * @date 2015å¹´6æœˆ3æ—¥ ä¸Šåˆ8:41:45
  */
 public class ExceptionMessage {
 

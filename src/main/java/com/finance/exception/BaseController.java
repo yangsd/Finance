@@ -5,19 +5,19 @@ import javax.servlet.http.HttpServletRequest;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 
 /**
- * Òì³£´¦ÀíÀà
+ * å¼‚å¸¸å¤„ç†ç±»
  * 
  * @author sdyang
- * @date 2015Äê6ÔÂ3ÈÕ ÉÏÎç9:42:43
+ * @date 2015å¹´6æœˆ3æ—¥ ä¸Šåˆ9:42:43
  */
 public class BaseController {
 
 	@ExceptionHandler
-	public String exp(HttpServletRequest request,Exception exception) {
+	public String exp(HttpServletRequest request, Exception exception) {
 
 		request.setAttribute("exception", exception);
 
-		// ¸ù¾İ²»Í¬´íÎó×ªÏò²»Í¬Ò³Ãæ
+		// æ ¹æ®ä¸åŒé”™è¯¯è½¬å‘ä¸åŒé¡µé¢
 		if (exception instanceof BusinessException) {
 			return "error-business";
 		} else {

@@ -20,7 +20,7 @@ import com.finance.login.SingleOnline;
 /**
  * 
  * @author sdyang
- * @date 2015骞�鏈�2鏃�涓嬪崍4:08:36
+ * @date 2015年7月31日 上午9:26:15
  */
 public class SessionFilter implements Filter {
 

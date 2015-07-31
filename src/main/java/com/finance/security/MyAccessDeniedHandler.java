@@ -5,7 +5,7 @@ import org.springframework.security.web.access.AccessDeniedHandlerImpl;
 /**
  * 
  * @author sdyang
- * @date 2015Äê6ÔÂ30ÈÕ ÉÏÎç9:43:29
+ * @date 2015å¹´7æœˆ31æ—¥ ä¸Šåˆ9:24:55
  */
 public class MyAccessDeniedHandler extends AccessDeniedHandlerImpl {
 

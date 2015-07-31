@@ -19,9 +19,10 @@ import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.handler.AbstractHandlerExceptionResolver;
 
 /**
- * Òì³£´¦ÀíÀà
+ * å¼‚å¸¸å¤„ç†ç±»
+ * 
  * @author sdyang
- * @date 2015Äê6ÔÂ3ÈÕ ÉÏÎç9:19:11
+ * @date 2015å¹´6æœˆ3æ—¥ ä¸Šåˆ9:19:11
  */
 public class MyExceptionResolver extends AbstractHandlerExceptionResolver {
 
@@ -32,9 +33,11 @@ public class MyExceptionResolver extends AbstractHandlerExceptionResolver {
 			// handler business exception
 			if (ex instanceof BusinessException) {
 				if (isAjaxRequest(request)) {
-					return handleAjaxBusinessException((Exception) ex, request,response, handler);
+					return handleAjaxBusinessException((Exception) ex, request,
+							response, handler);
 				} else {
-					return handleBusinessException((BusinessException) ex,request, response, handler);
+					return handleBusinessException((BusinessException) ex,
+							request, response, handler);
 				}
 			}
 			// handler system exception
@@ -51,11 +54,11 @@ public class MyExceptionResolver extends AbstractHandlerExceptionResolver {
 	}
 
 	/**
-	 * Í¨¹ıÇëÇóÍ·²¿ÅĞ¶ÏÊÇ·ñÎªajaxÇëÇó
+	 * é€šè¿‡è¯·æ±‚å¤´éƒ¨åˆ¤æ–­æ˜¯å¦ä¸ºajaxè¯·æ±‚
 	 * 
 	 * @param request
-	 *            ÇëÇóÌå
-	 * @return Õæ£ºajaxÇëÇó£»¼Ù£º·ÇajaxÇëÇó
+	 *            è¯·æ±‚ä½“
+	 * @return çœŸï¼šajaxè¯·æ±‚ï¼›å‡ï¼šéajaxè¯·æ±‚
 	 */
 	private boolean isAjaxRequest(HttpServletRequest request) {
 		final String header = request.getHeader("x-requested-with");

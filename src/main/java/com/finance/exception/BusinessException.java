@@ -1,10 +1,10 @@
 package com.finance.exception;
 
 /**
- * ×Ô¶¨ÒåÒì³£Àà
+ * è‡ªå®šä¹‰å¼‚å¸¸ç±»
  * 
  * @author sdyang
- * @date 2015Äê6ÔÂ3ÈÕ ÉÏÎç8:48:07
+ * @date 2015å¹´6æœˆ3æ—¥ ä¸Šåˆ8:48:07
  */
 public class BusinessException extends Exception {
 

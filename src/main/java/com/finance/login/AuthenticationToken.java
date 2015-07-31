@@ -6,7 +6,7 @@ import org.springframework.security.authentication.UsernamePasswordAuthenticatio
 /**
  * 
  * @author sdyang
- * @date 2015Äê6ÔÂ18ÈÕ ÉÏÎç9:50:47
+ * @date 2015å¹´7æœˆ31æ—¥ ä¸Šåˆ9:27:29
  */
 public class AuthenticationToken extends UsernamePasswordAuthenticationToken {
 

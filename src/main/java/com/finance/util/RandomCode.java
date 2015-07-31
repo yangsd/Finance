@@ -2,25 +2,20 @@ package com.finance.util;
 
 import java.util.Random;
 
-/**
- * 
- * @author sdyang
- * @date 2015Äê6ÔÂ15ÈÕ ÏÂÎç5:30:49
- */
 public class RandomCode {
 
-	// Éú³ÉËæ»úÊıÊ±µÄÊı¾İÔ´
+	// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê±ï¿½ï¿½ï¿½ï¿½ï¿½Ô´
 	private static char[] codeSequence = { 'a', 'b', 'c', 'd', 'e', 'f', 'g',
 			'h', 'i', 'j', 'k', 'm', 'n', 'p', 'q', 'r', 't', 'u', 'v', 'w',
 			'x', 'y', 'z', '1', '2', '3', '4', '5', '6', '7', '8', '9' };
 
 	public static String genNumPassword(int length) {
-		// ´´½¨Ò»¸öËæ»úÊıÉú³ÉÆ÷Àà
+		
 		Random random = new Random();
-		// randomCodeÓÃÓÚ±£´æËæ»ú²úÉúµÄÑéÖ¤Âë£¬ÒÔ±ãÓÃ»§µÇÂ¼ºó½øĞĞÑéÖ¤¡£
+		
 		StringBuffer randomCode = new StringBuffer();
 		for (int i = 0; i < length; i++) {
-			// µÃµ½Ëæ»ú²úÉúµÄÑéÖ¤ÂëÊı×Ö¡£
+			
 			String strRand = String.valueOf(codeSequence[random.nextInt(32)]);
 			randomCode.append(strRand);
 		}

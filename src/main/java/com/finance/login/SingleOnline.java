@@ -6,43 +6,26 @@ import java.util.concurrent.ConcurrentHashMap;
 /**
  * 
  * @author sdyang
- * @date 2015Äê6ÔÂ30ÈÕ ÉÏÎç10:13:05
+ * @date 2015å¹´7æœˆ31æ—¥ ä¸Šåˆ9:27:51
  */
 public class SingleOnline {
 
-	/**
-	 * ÊÇ·ñÇ¿ÖÆµÇÂ¼
-	 */
+	
 	public static final String ENFORCE = "enforce";
 
 	private static Map<String, String> mapOnline = new ConcurrentHashMap<String, String>();
 
-	/**
-	 * ½«ÓÃ»§Ìí¼Óµ½ÔÚÏßÁĞ±í
-	 * 
-	 * @param userCode
-	 * @param sessionId
-	 */
+	
 	public static void addUser(String userName, String sessionId) {
 		mapOnline.put(userName, sessionId);
 	}
 
-	/**
-	 * ´ÓÔÚÏßÁĞ±íÉ¾³ıÓÃ»§
-	 * 
-	 * @param userName
-	 */
+	
 	public static void removeUser(String userName) {
 		mapOnline.remove(userName);
 	}
 
-	/**
-	 * ÓÃ»§ÊÇ·ñÔÚÏß
-	 * 
-	 * @param userCode
-	 * @param sessionId
-	 * @return
-	 */
+	
 	public static boolean isOnline(String userName) {
 		if (mapOnline.containsKey(userName)) {
 			return true;
@@ -51,13 +34,7 @@ public class SingleOnline {
 		}
 	}
 
-	/**
-	 * sessionÊÇ·ñÓĞĞ§
-	 * 
-	 * @param userName
-	 * @param sessionId
-	 * @return
-	 */
+	
 	public static boolean isSessionValid(String sessionId) {
 		boolean flag = false;
 		if (mapOnline.containsValue(sessionId)) {
@@ -66,9 +43,7 @@ public class SingleOnline {
 		return flag;
 	}
 
-	/**
-	 * Çå³ıËùÓĞsession
-	 */
+	
 	public static void purge() {
 		mapOnline.clear();
 	}

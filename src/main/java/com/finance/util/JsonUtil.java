@@ -2,11 +2,6 @@ package com.finance.util;
 
 import com.google.gson.Gson;
 
-/**
- * 
- * @author sdyang
- * @date 2015年6月12日 下午4:40:38
- */
 public class JsonUtil {
 
 	private static JsonUtil instance;

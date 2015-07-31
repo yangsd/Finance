@@ -22,7 +22,7 @@ import com.finance.vo.UserVO;
 /**
  * 
  * @author sdyang
- * @date 2015��6��15�� ����11:41:39
+ * @date 2015年7月31日 上午9:24:37
  */
 public class UserDetailsServiceImpl implements UserDetailsService {
 
@@ -33,8 +33,7 @@ public class UserDetailsServiceImpl implements UserDetailsService {
 			throws UsernameNotFoundException {
 		UserDetails user = null;
 
-		// ������ݿ���ƥ���û���¼��.
-		// ���ǿ���ͨ��daoʹ��JDBC��������ݿ�
+		
 		UserVO userVO;
 		try {
 			userVO = userDao.selectUserByLoginId(loginId);
@@ -52,10 +51,10 @@ public class UserDetailsServiceImpl implements UserDetailsService {
 
 		List<GrantedAuthority> authList = new ArrayList<GrantedAuthority>(2);
 
-		// ���е��û�Ĭ��ӵ��ROLE_USERȨ��
+		
 		authList.add(new SimpleGrantedAuthority(RoleConstant.ROLE_USER));
 
-		// ������accessΪ1.��ӵ��ROLE_ADMINȨ��
+		
 		if (access.compareTo(1) == 0) {
 			authList.add(new SimpleGrantedAuthority(RoleConstant.ROLE_ADMIN));
 		}

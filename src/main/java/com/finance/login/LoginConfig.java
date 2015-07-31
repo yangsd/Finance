@@ -12,7 +12,7 @@ import org.springframework.core.io.support.PropertiesLoaderUtils;
 /**
  * 
  * @author sdyang
- * @date 2015Äê7ÔÂ2ÈÕ ÏÂÎç6:24:43
+ * @date 2015å¹´7æœˆ31æ—¥ ä¸Šåˆ9:27:37
  */
 public class LoginConfig {
 
@@ -28,11 +28,7 @@ public class LoginConfig {
 		return LoginConfig.instance;
 	}
 
-	/**
-	 * ¼ÓÔØÅäÖÃÎÄ¼ş
-	 * @author sdyang
-	 * @date 2015Äê7ÔÂ3ÈÕ ÉÏÎç9:15:07
-	 */
+	
 	private static void loadConfig() {
 		Map<String, Object> config = new HashMap<String, Object>();
 		try {

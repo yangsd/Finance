@@ -1,51 +1,41 @@
 package com.finance.util;
-
 import java.io.File;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 public class FileUtil {
-	
+
 	private static Logger logger = LogManager.getLogger(FileUtil.class);
-	
-	public boolean checkParentFile(String filePath)
-	{
+
+	public boolean checkParentFile(String filePath) {
 		boolean result = false;
-		
+
 		File file = new File(filePath);
-		if(!file.getParentFile().exists())
-		{
-			logger.trace("Ä¿Â¼²»´æÔÚ£¬×¼±¸´´½¨Ä¿Â¼£¡");
-			if(file.getParentFile().mkdirs())
-			{
-				logger.trace("³É¹¦´´½¨Ä¿Â¼£¡");
+		if (!file.getParentFile().exists()) {
+			logger.trace("ç›®å½•ä¸å­˜åœ¨ï¼Œå‡†å¤‡åˆ›å»ºç›®å½•ï¼");
+			if (file.getParentFile().mkdirs()) {
+				logger.trace("æˆåŠŸåˆ›å»ºç›®å½•ï¼");
 				result = true;
-			}else
-			{
-				logger.error("´´½¨Ä¿Â¼Ê§°Ü£¡");
+			} else {
+				logger.error("åˆ›å»ºç›®å½•å¤±è´¥ï¼");
 			}
-		}else
-		{
+		} else {
 			result = true;
 		}
 		return result;
 	}
-	
-	public void checkFile(String filePath)
-	{
+
+	public void checkFile(String filePath) {
 		File file = new File(filePath);
-		if(file.exists())
-		{
-			logger.trace("ÎÄ¼şÒÑ¾­´æÔÚ£¬×¼±¸É¾³ı£¡");
-			if(file.delete())
-			{
-				logger.trace("³É¹¦É¾³ıÎÄ¼ş£¡");
-			}else
-			{
-				logger.error("É¾³ıÎÄ¼şÊ§°Ü£¡");
+		if (file.exists()) {
+			logger.trace("æ–‡ä»¶å·²ç»å­˜åœ¨ï¼Œå‡†å¤‡åˆ é™¤ï¼");
+			if (file.delete()) {
+				logger.trace("æˆåŠŸåˆ é™¤æ–‡ä»¶ï¼");
+			} else {
+				logger.error("åˆ é™¤æ–‡ä»¶å¤±è´¥ï¼");
 			}
-	    }
+		}
 	}
 
 }

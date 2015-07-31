@@ -1,11 +1,5 @@
 package com.finance.condition;
 
-/**
- * 分页查询条件
- * 
- * @author sdyang
- * @date 2015年7月7日 下午3:55:33
- */
 public class DataGridCondition {
 
 	private int currentPage;
@@ -38,13 +32,9 @@ public class DataGridCondition {
 		this.offset = offset;
 	}
 	
-	/**
-	 * 计算偏移量
-	 * @author sdyang
-	 * @date 2015年7月7日 下午4:03:18
-	 */
+	
 	public void calculateOffset(){
-		//偏移量 = （ 当前页数  - 1 ） * 行数
+		
 		this.setOffset((this.getCurrentPage() - 1 ) * this.getRows());
 	}
 

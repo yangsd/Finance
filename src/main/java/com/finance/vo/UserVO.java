@@ -1,10 +1,9 @@
 package com.finance.vo;
 
 /**
- * ÓÃ»§
  * 
  * @author sdyang
- * @date 2015Äê6ÔÂ3ÈÕ ÏÂÎç5:34:39
+ * @date 2015å¹´7æœˆ31æ—¥ ä¸Šåˆ9:31:05
  */
 
 public class UserVO {
@@ -25,9 +24,8 @@ public class UserVO {
 
 	private String modifytime;
 
-	/**
-	 * Âß¼­É¾³ı±êÊ¶
-	 */
+	private String enable;
+
 	private String dr;
 
 	public UserVO() {
@@ -104,6 +102,14 @@ public class UserVO {
 
 	public void setDr(String dr) {
 		this.dr = dr;
+	}
+
+	public String getEnable() {
+		return enable;
+	}
+
+	public void setEnable(String enable) {
+		this.enable = enable;
 	}
 
 }

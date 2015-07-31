@@ -20,7 +20,7 @@ import com.finance.dao.impl.ResourceDaoImpl;
 /**
  * 
  * @author sdyang
- * @date 2015Äê6ÔÂ29ÈÕ ÏÂÎç5:29:57
+ * @date 2015å¹´7æœˆ31æ—¥ ä¸Šåˆ9:25:03
  */
 public class MyResourceFilter implements FilterInvocationSecurityMetadataSource {
 
@@ -45,7 +45,7 @@ public class MyResourceFilter implements FilterInvocationSecurityMetadataSource 
 
 		Map<String, Collection<ConfigAttribute>> map = new HashMap<String, Collection<ConfigAttribute>>();
 
-		// »ñÈ¡×ÊÔ´È¨ÏŞÓ³Éäkey£ºurl£¬value£ºrole
+		
 		Map<String, String> configs = resourceDao.getResources();
 		for (Entry<String, String> entry : configs.entrySet()) {
 			Collection<ConfigAttribute> list = new ArrayList<ConfigAttribute>();
@@ -74,19 +74,21 @@ public class MyResourceFilter implements FilterInvocationSecurityMetadataSource 
 			loadResourceMatchAuthority();
 		}
 		
-		// ¹ıÂË²ÎÊı
+		
         int firstQuestionMarkIndex = url.indexOf("?");
         if (firstQuestionMarkIndex != -1) {
             url = url.substring(0, firstQuestionMarkIndex);
         }
-        // ¹ıÂË²»ĞèÒªÑéÖ¤µÄ×ÊÔ´
-        if (url.endsWith(".js") || url.endsWith(".jpg") || url.endsWith(".png") || url.endsWith(".css")|| url.endsWith(".gif")) {
-            return null;
-        }
         
-        System.out.println("ÇëÇóµÄurl:" + url);
+		if (url.endsWith(".js") || url.endsWith(".jpg") || url.endsWith(".png")
+				|| url.endsWith(".css") || url.endsWith(".gif")
+				|| url.endsWith(".woff") || url.endsWith(".ttf")) {
+			return null;
+		}
         
-		// ±È½ÏurlÊÇ·ñ´æÔÚ
+        System.out.println("request url:" + url);
+        
+		
 		Iterator<String> ite = resourceMap.keySet().iterator();
 		while (ite.hasNext()) {
 			String resURL = ite.next();

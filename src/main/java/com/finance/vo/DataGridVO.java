@@ -2,11 +2,7 @@ package com.finance.vo;
 
 import java.util.List;
 
-/**
- * 
- * @author sdyang
- * @date 2015年7月2日 下午4:23:57
- */
+
 public class DataGridVO {
 
 	private int total;

@@ -1,12 +1,6 @@
 package com.finance.condition;
 
 
-/**
- * 用户查询条件
- * 
- * @author sdyang
- * @date 2015年7月7日 下午4:07:11
- */
 public class UserQueryCondition extends DataGridCondition {
 
 	private String loginid;

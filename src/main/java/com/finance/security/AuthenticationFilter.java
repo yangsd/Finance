@@ -19,7 +19,7 @@ import com.finance.login.LoginConfig;
 /**
  * 
  * @author sdyang
- * @date 2015Äê6ÔÂ18ÈÕ ÉÏÎç10:07:49
+ * @date 2015å¹´7æœˆ31æ—¥ ä¸Šåˆ9:24:09
  */
 public class AuthenticationFilter extends UsernamePasswordAuthenticationFilter {
 
@@ -55,11 +55,11 @@ public class AuthenticationFilter extends UsernamePasswordAuthenticationFilter {
 
 		setDetails(request, authRequest);
 
-		// ÊÇ·ñ¼ì²éÑéÖ¤Âë
+		
 		String isVerificationCode =  (String) LoginConfig.getInstance()
 				.getConfigs().get("verificationCode");
 
-		// ¼ì²éÑéÖ¤Âë
+		
 		if (isVerificationCode.equals("true")) {
 			checkValidateCode(request);
 		}
@@ -70,7 +70,7 @@ public class AuthenticationFilter extends UsernamePasswordAuthenticationFilter {
 	/**
 	 * 
 	 * @author sdyang
-	 * @date 2015Äê6ÔÂ18ÈÕ ÉÏÎç11:38:08
+	 * @date 2015å¹´7æœˆ31æ—¥ ä¸Šåˆ9:24:21
 	 * @param request
 	 */
 	private void checkValidateCode(HttpServletRequest request) {
@@ -83,10 +83,10 @@ public class AuthenticationFilter extends UsernamePasswordAuthenticationFilter {
 
 		if (StringUtils.isEmpty(validateCodeParameter)
 				|| !sessionValidateCode.equalsIgnoreCase(validateCodeParameter)) {
-			//Çå³ıÑéÖ¤Âë
+			
 			request.getSession().removeAttribute(UserConstant.SESSION_VERIFICATIONCODE);
 			
-			throw new AuthenticationServiceException("ÑéÖ¤Âë´íÎó£¬ÇëÖØĞÂÊäÈë£¡");
+			throw new AuthenticationServiceException("ï¿½ï¿½Ö¤ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ë£¡");
 		}
 	}
 }

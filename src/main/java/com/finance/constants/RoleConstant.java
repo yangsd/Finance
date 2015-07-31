@@ -6,23 +6,14 @@ import java.util.Map;
 /**
  * 
  * @author sdyang
- * @date 2015Äê6ÔÂ30ÈÕ ÉÏÎç11:06:20
+ * @date 2015å¹´7æœˆ31æ—¥ ä¸Šåˆ9:50:25
  */
 public interface RoleConstant {
 
-	/**
-	 * ¹ÜÀíÔ±
-	 */
 	public static String ROLE_ADMIN = "ROLE_ADMIN";
 
-	/**
-	 * ÓÃ»§
-	 */
 	public static String ROLE_USER = "ROLE_USER";
 
-	/**
-	 * ·ÃÎÊÈ¨ÏŞ
-	 */
 	public static Map<Integer, String> ACCESS = new HashMap<Integer, String>() {
 		{
 			put(1, "admin");

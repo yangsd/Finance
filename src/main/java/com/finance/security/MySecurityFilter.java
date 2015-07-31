@@ -18,7 +18,7 @@ import org.springframework.security.web.access.intercept.FilterInvocationSecurit
 /**
  * 
  * @author sdyang
- * @date 2015Äê6ÔÂ29ÈÕ ÏÂÎç5:59:14
+ * @date 2015å¹´7æœˆ31æ—¥ ä¸Šåˆ9:26:04
  */
 public class MySecurityFilter extends AbstractSecurityInterceptor implements
 		Filter {
