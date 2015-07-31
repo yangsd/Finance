@@ -38,11 +38,6 @@
 							<i class="icon-bulb"></i>
 							New Dashboard #1</a>
 						</li>
-						<li>
-							<a href="index_3.html">
-							<i class="icon-graph"></i>
-							New Dashboard #2</a>
-						</li>
 					</ul>
 				</li>
 				<li>
@@ -96,15 +91,6 @@
 							<a href="ui_buttons.html">
 							Buttons</a>
 						</li>
-						
-						<li>
-							<a href="ui_modals.html">
-							Modals</a>
-						</li>
-						<li>
-							<a href="ui_nestable.html">
-							Nestable List</a>
-						</li>
 					</ul>
 				</li>
 				<li>
@@ -128,22 +114,22 @@
 				<!-- 第二部分菜单 -->
 				
 				<li class="heading">
-					<h3 class="uppercase">Features</h3>
+					<h3 class="uppercase">后台管理</h3>
 				</li>
 				<li>
 					<a href="javascript:;">
 					<i class="icon-settings"></i>
-					<span class="title">Form Stuff</span>
+					<span class="title">用户管理</span>
 					<span class="arrow "></span>
 					</a>
 					<ul class="sub-menu">
 						<li>
 							<a href="form_controls.html">
-							Form Controls</a>
+							新增用户</a>
 						</li>
 						<li>
 							<a href="form_dropzone.html">
-							Dropzone File Upload</a>
+							查询用户</a>
 						</li>
 					</ul>
 				</li>

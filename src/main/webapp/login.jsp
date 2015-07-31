@@ -33,6 +33,22 @@
 <link href="/Finance/assets/admin/layout/css/custom.css" rel="stylesheet" type="text/css"/>
 <!-- END THEME STYLES -->
 <link rel="shortcut icon" href="favicon.ico"/>
+<script src="/Finance/assets/global/plugins/jquery-2.1.4.js" type="text/javascript"></script>
+ <script type="text/javascript" language="javascript">
+	    //初始化验证码
+	    $(function(){
+	    	setValidateCode();
+	    });
+	
+	    //单击更换验证码
+	    function changeImg(){
+	    	setValidateCode();
+	    };
+	
+	    function setValidateCode() {
+	    	$('img#codefont').attr('src', 'randomnum?num=' + new Date().getTime());
+	    }
+    </script>
 </head>
 <!-- END HEAD -->
 <!-- BEGIN BODY -->
@@ -127,6 +143,7 @@
 			<label class="control-label visible-ie8 visible-ie9">Re-type Your Password</label>
 			<input class="form-control placeholder-no-fix" type="password" autocomplete="off" placeholder="请再次输入密码" name="rpassword"/>
 		</div>
+		<!--  
 		<div class="form-group margin-top-20 margin-bottom-20">
 			<label class="check">
 			<input type="checkbox" name="tnc"/> I agree to the <a href="#">
@@ -137,6 +154,7 @@
 			<div id="register_tnc_error">
 			</div>
 		</div>
+		-->
 		<div class="form-actions">
 			<button type="button" id="register-back-btn" class="btn btn-default">返回</button>
 			<button type="submit" id="register-submit-btn" class="btn btn-success uppercase pull-right">提交</button>
@@ -145,7 +163,7 @@
 	<!-- END REGISTRATION FORM -->
 </div>
 <div class="copyright">
-	 2014 Â© Metronic. Admin Dashboard Template.
+	 2015 @ created by sdyang
 </div>
 <!-- END LOGIN -->
 <!-- BEGIN JAVASCRIPTS(Load javascripts at bottom, this will reduce page load time) -->
@@ -154,7 +172,7 @@
 <script src="/Finance/assets/global/plugins/respond.min.js"></script>
 <script src="/Finance/assets/global/plugins/excanvas.min.js"></script> 
 <![endif]-->
-<script src="/Finance/assets/global/plugins/jquery.min.js" type="text/javascript"></script>
+
 <script src="/Finance/assets/global/plugins/jquery-migrate.min.js" type="text/javascript"></script>
 <script src="/Finance/assets/global/plugins/bootstrap.min.js" type="text/javascript"></script>
 <script src="/Finance/assets/global/plugins/jquery.blockui.min.js" type="text/javascript"></script>

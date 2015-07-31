@@ -15,11 +15,10 @@ import com.finance.constants.UserConstant;
 import com.finance.login.AuthenticationToken;
 import com.finance.login.LoginConfig;
 
-
 /**
  * 
  * @author sdyang
- * @date 2015年7月31日 上午9:24:09
+ * @date 2015年6月18日 上午10:07:49
  */
 public class AuthenticationFilter extends UsernamePasswordAuthenticationFilter {
 
@@ -55,11 +54,11 @@ public class AuthenticationFilter extends UsernamePasswordAuthenticationFilter {
 
 		setDetails(request, authRequest);
 
-		
-		String isVerificationCode =  (String) LoginConfig.getInstance()
+		// 是否检查验证码
+		String isVerificationCode = (String) LoginConfig.getInstance()
 				.getConfigs().get("verificationCode");
 
-		
+		// 检查验证码
 		if (isVerificationCode.equals("true")) {
 			checkValidateCode(request);
 		}
@@ -70,7 +69,7 @@ public class AuthenticationFilter extends UsernamePasswordAuthenticationFilter {
 	/**
 	 * 
 	 * @author sdyang
-	 * @date 2015年7月31日 上午9:24:21
+	 * @date 2015年6月18日 上午11:38:08
 	 * @param request
 	 */
 	private void checkValidateCode(HttpServletRequest request) {
@@ -83,10 +82,11 @@ public class AuthenticationFilter extends UsernamePasswordAuthenticationFilter {
 
 		if (StringUtils.isEmpty(validateCodeParameter)
 				|| !sessionValidateCode.equalsIgnoreCase(validateCodeParameter)) {
-			
-			request.getSession().removeAttribute(UserConstant.SESSION_VERIFICATIONCODE);
-			
-			throw new AuthenticationServiceException("��֤��������������룡");
+			// 清除验证码
+			request.getSession().removeAttribute(
+					UserConstant.SESSION_VERIFICATIONCODE);
+
+			throw new AuthenticationServiceException("验证码错误，请重新输入！");
 		}
 	}
 }

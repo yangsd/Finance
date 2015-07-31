@@ -10,13 +10,6 @@ import com.finance.constants.RoleConstant;
 import com.finance.constants.UrlConstant;
 import com.finance.dao.ResourceDao;
 
-
-
-/**
- * 
- * @author sdyang
- * @date 2015年6月29日 下午5:26:17
- */
 @Transactional
 @Service("ResourceDao")
 public class ResourceDaoImpl implements ResourceDao {

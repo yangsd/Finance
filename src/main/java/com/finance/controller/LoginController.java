@@ -53,7 +53,7 @@ public class LoginController {
 	}
 
 	@RequestMapping(value = "/index", method = RequestMethod.GET)
-	public ModelAndView getIndexPage() {
+	public ModelAndView getIndexPage() {		
 		ModelAndView mav = new ModelAndView("index");
 		return mav;
 	}
@@ -131,6 +131,18 @@ public class LoginController {
 		sos.close();
 
 		return null;
+	}
+	
+	@RequestMapping(value = "/lock", method = RequestMethod.GET)
+	public ModelAndView getLockPage() {
+		ModelAndView mav = new ModelAndView("lock");
+		return mav;
+	}
+	
+	@RequestMapping(value = "/unlock", method = RequestMethod.GET)
+	public ModelAndView getUnlockPage() {
+		ModelAndView mav = new ModelAndView("index");
+		return mav;
 	}
 
 }

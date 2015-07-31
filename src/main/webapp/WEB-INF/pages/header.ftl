@@ -138,7 +138,7 @@
 						<li class="divider">
 						</li>
 						<li>
-							<a href="extra_lock.html">
+							<a href="lock">
 							<i class="icon-lock"></i> Lock Screen </a>
 						</li>
 						<li>
