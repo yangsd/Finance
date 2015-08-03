@@ -20,7 +20,6 @@
 					</form>
 					<!-- END RESPONSIVE QUICK SEARCH FORM -->
 				</li>
-				
 				<li class="start active open">
 					<a href="javascript:;">
 					<i class="icon-home"></i>

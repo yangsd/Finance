@@ -13,6 +13,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.core.userdetails.User;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -42,6 +44,10 @@ public class LoginController {
 
 	@RequestMapping(value = "/loginout", method = RequestMethod.GET)
 	public String getLoginOutPage() {
+		User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();	
+		System.out.println("当前登录用户："+user.getUsername());
+		System.out.println("当前登录角色："+user.getAuthorities().toString());
+		
 		return "login";
 	}
 
@@ -60,7 +66,7 @@ public class LoginController {
 	
 	@RequestMapping(value = "/home", method = RequestMethod.GET)
 	public ModelAndView getHomePage() {
-		ModelAndView mav = new ModelAndView("home");
+		ModelAndView mav = new ModelAndView("index");
 		return mav;
 	}
 
@@ -143,6 +149,32 @@ public class LoginController {
 	public ModelAndView getUnlockPage() {
 		ModelAndView mav = new ModelAndView("index");
 		return mav;
+	}	
+	
+	@RequestMapping("/menu")
+    @ResponseBody
+    public String getMenu() {
+		String menu = "";
+		String role = getCurrentRole();
+		
+		menu = "<li class=\"start active open\"><a href=\"javascript:;\"><i class=\"icon-home\"></i><span class=\"title\">Dashboard</span><span class=\"selected\"></span><span class=\"arrow\"></span></a>";
+		
+		menu = menu + "<ul class=\"sub-menu\">";
+		
+		menu = menu + "<li class=\"active\"><a href=\"index.html\"><i class=\"icon-bar-chart\"></i>Default Dashboard</a></li>";
+		menu = menu + "<li><a href=\"index_2.html\"><i class=\"icon-bulb\"></i>New Dashboard #1</a></li>";
+		
+		menu = menu + "</ul></li>";
+		
+		return menu;
+    }
+	
+	
+	private String getCurrentRole(){		
+		User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+		String role = user.getAuthorities().toString();
+		System.out.println("当前登录角色："+role);
+		return role;
 	}
 
 }
