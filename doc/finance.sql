@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50624
 File Encoding         : 65001
 
-Date: 2015-07-31 16:44:08
+Date: 2015-08-03 14:22:04
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -33,8 +33,32 @@ CREATE TABLE `role` (
 -- ----------------------------
 -- Records of role
 -- ----------------------------
-INSERT INTO `role` VALUES ('1', 'admin', '1', '', '0', '2015-07-31 09:19:00', '0');
-INSERT INTO `role` VALUES ('2', 'user', '2', '', '0', '2015-07-31 09:19:19', '0');
+INSERT INTO `role` VALUES ('1', 'ROLE_ADMIN', '1', '管理员', '0', '2015-07-31 16:58:58', '0');
+INSERT INTO `role` VALUES ('2', 'ROLE_USER', '2', '普通用户', '0', '2015-07-31 16:59:17', '0');
+
+-- ----------------------------
+-- Table structure for url
+-- ----------------------------
+DROP TABLE IF EXISTS `url`;
+CREATE TABLE `url` (
+  `pk_url` int(11) NOT NULL AUTO_INCREMENT,
+  `url` varchar(255) NOT NULL,
+  `name` varchar(255) DEFAULT NULL,
+  `icon` varchar(255) DEFAULT NULL,
+  `desc` varchar(255) DEFAULT NULL,
+  `isparent` varchar(0) NOT NULL,
+  `parent_url` int(11) DEFAULT NULL,
+  `pk_role` int(255) DEFAULT NULL,
+  `enable` varchar(1) NOT NULL DEFAULT '0',
+  `ordernum` int(11) DEFAULT NULL,
+  `createtime` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `dr` varchar(1) NOT NULL DEFAULT '0',
+  PRIMARY KEY (`pk_url`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of url
+-- ----------------------------
 
 -- ----------------------------
 -- Table structure for user
