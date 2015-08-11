@@ -23,7 +23,9 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.finance.constants.UserConstant;
 import com.finance.dao.UserDao;
+import com.finance.exception.BusinessException;
 import com.finance.util.RandomCode;
+import com.finance.vo.UserVO;
 
 /**
  * 
@@ -69,6 +71,7 @@ public class LoginController {
 		ModelAndView mav = new ModelAndView("index");
 		return mav;
 	}
+	
 
 	@RequestMapping(value = "/admin", method = RequestMethod.GET)
 	public String getAadminPage() {
@@ -175,6 +178,15 @@ public class LoginController {
 		String role = user.getAuthorities().toString();
 		System.out.println("当前登录角色："+role);
 		return role;
+	}
+	
+
+	@RequestMapping(value = "/getCurrentUser")
+	@ResponseBody
+	public String getCurrentUser() throws BusinessException{
+		User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();		
+		UserVO u = userDao.selectUserByLoginId(user.getUsername());
+		return u.getName();
 	}
 
 }

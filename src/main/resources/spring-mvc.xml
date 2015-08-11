@@ -62,6 +62,27 @@
 	    <!-- 上传的文件最大为10M -->
 	    <property name="maxUploadSize" value="10000000"/>
 	</bean>
+		
+	<mvc:annotation-driven>  
+        <mvc:message-converters>  
+            <ref bean="stringHttpMessageConverter" />   
+        </mvc:message-converters>  
+    </mvc:annotation-driven>  
+    
+	<!-- 在spring3.2以后，@RequestMapping使用了RequestMappingHandlerAdapter来处理请求，
+	对于@ResponseBody，当为string时，会调用默认构造方法里面add的StringHttpMessageConverter，
+	需要注意的是，这个converter默认的编码是“ISO-8859-1”，中文的大敌啊，而且这个converter是new出来的，
+	因此无法采用替代注入的方式，而只能注入messageConverters 
+	 -->  
+	 <bean id="stringHttpMessageConverter"  
+        class="org.springframework.http.converter.StringHttpMessageConverter">  
+        <constructor-arg value="UTF-8" index="0"></constructor-arg>
+        <property name="supportedMediaTypes">  
+            <list>  
+                <value>text/plain;charset=UTF-8</value>  
+            </list>  
+        </property>  
+    </bean>   
 	
      <!-- 异常处理 -->
    <bean id="myExceptionResolver" class="com.finance.exception.MyExceptionResolver"/>

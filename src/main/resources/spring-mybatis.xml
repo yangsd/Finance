@@ -25,7 +25,7 @@
    <!-- 使用dbcp地址池 -->  
    <bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource" destroy-method="close"> 
         <property name="driverClassName" value="com.mysql.jdbc.Driver" />  
-        <property name="url"             value="jdbc:mysql://localhost:3306/test" />  
+        <property name="url"             value="jdbc:mysql://localhost:3306/finance" />  
         <property name="username"        value="root" />  
         <property name="password" 		 value="mysql" />  
         <property name="minIdle"         value="1"/>        <!-- 队列中的最小等待数 -->  

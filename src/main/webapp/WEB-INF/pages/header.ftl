@@ -114,9 +114,10 @@
 				<!-- DOC: Apply "dropdown-dark" class after below "dropdown-extended" to change the dropdown styte -->
 				<li class="dropdown dropdown-user">
 					<a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-close-others="true">
-					<img alt="" class="img-circle" src="/Finance/assets/admin/layout/img/avatar3_small.jpg"/>
-					<span class="username username-hide-on-mobile">
-					Nick </span>
+					
+					<!-- 用户信息 -->
+					<div id="userInfo"></div>
+					
 					<i class="fa fa-angle-down"></i>
 					</a>
 					<ul class="dropdown-menu dropdown-menu-default">
@@ -155,3 +156,19 @@
 	</div>
 	<!-- END HEADER INNER -->
 </div>
+<script src="/Finance/assets/global/plugins/jquery.min.js" type="text/javascript"></script>
+<script>
+//查询用户信息
+$(function(){ 
+	$.ajax({	   
+	   type: 'get',
+	   url:'/Finance/getCurrentUser',
+	   success: function(data) {		       	   
+	       //alert(data);  
+	       
+	       $('#userInfo').append("<img alt='' class='img-circle' src='/Finance/assets/admin/layout/img/avatar3_small.jpg'/><span class='username username-hide-on-mobile'>"+data+"</span>");
+	   }
+	   
+	}); 
+});
+</script>
