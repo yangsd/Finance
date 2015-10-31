@@ -1,6 +1,10 @@
 package com.finance.vo;
 
+import java.util.Collection;
 import java.util.List;
+
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.userdetails.UserDetails;
 
 /**
  * 
@@ -8,7 +12,7 @@ import java.util.List;
  * @date 2015年7月31日 上午9:31:05
  */
 
-public class UserVO {
+public class UserVO implements UserDetails{
 
 	private int pk_user;
 
@@ -19,8 +23,6 @@ public class UserVO {
 	private String password;
 
 	private Integer access;
-
-	private RoleVO role;
 
 	private String creatime;
 
@@ -76,14 +78,6 @@ public class UserVO {
 		this.access = access;
 	}
 
-	public RoleVO getRole() {
-		return role;
-	}
-
-	public void setRole(RoleVO role) {
-		this.role = role;
-	}
-
 	public String getCreatime() {
 		return creatime;
 	}
@@ -122,6 +116,30 @@ public class UserVO {
 
 	public void setRoleList(List<RoleVO> roleList) {
 		this.roleList = roleList;
+	}
+
+	public Collection<? extends GrantedAuthority> getAuthorities() {
+		return this.roleList;
+	}
+
+	public String getUsername() {
+		return this.loginid;
+	}
+
+	public boolean isAccountNonExpired() {
+		return true;
+	}
+
+	public boolean isAccountNonLocked() {
+		return true;
+	}
+
+	public boolean isCredentialsNonExpired() {
+		return true;
+	}
+
+	public boolean isEnabled() {
+		return true;
 	}
 
 }

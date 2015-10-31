@@ -6,16 +6,24 @@
         <id column="pk_user" property="pk_user" jdbcType="INTEGER" />  
         <result column="loginid" property="loginid" jdbcType="VARCHAR" /> 
         <result column="password" property="password" jdbcType="VARCHAR" />
-        <result column="name" property="name" jdbcType="VARCHAR" /> 
-        <!--  
-        <result column="access" property="access" jdbcType="INTEGER" />
-        <result column="creatime" property="creatime" jdbcType="TIMESTAMP" /> 
-        <result column="creatime" property="beginTime" jdbcType="TIMESTAMP" />  
-        <result column="creatime" property="endTime" jdbcType="TIMESTAMP" /> 
-        -->    
+        <result column="name" property="name" jdbcType="VARCHAR" />        
+    </resultMap> 
+    
+    <resultMap id="resultRoleMap" type="com.finance.vo.RoleVO">  
+        <id column="pk_role" property="pk_role" jdbcType="INTEGER" />  
+        <result column="role_code" property="role_code" jdbcType="VARCHAR" /> 
+        <result column="role_name" property="role_name" jdbcType="VARCHAR" />
+        <result column="enable" property="enable" jdbcType="VARCHAR" />        
+    </resultMap>   
+    
+    <resultMap id="resultUserAndRole" type="com.finance.vo.UserVO">  
+        <id column="pk_user" property="pk_user" jdbcType="INTEGER" />  
+        <result column="loginid" property="loginid" jdbcType="VARCHAR" /> 
+        <result column="password" property="password" jdbcType="VARCHAR" />
+        <result column="name" property="name" jdbcType="VARCHAR" />  
+        <collection property="roleList" javaType="java.util.ArrayList" resultMap="resultRoleMap" />      
     </resultMap>  
-    
-    
+   
     
     <!-- 根据主键查询用户信息 -->
     <select id="selectUserById" parameterType="java.lang.Integer" resultMap="resultUserMap">
@@ -23,8 +31,8 @@
 	</select>
 	
 	<!-- 根据登录账户查询用户信息 -->
-	<select id="selectUserByLoginId" parameterType="java.lang.String" resultMap="resultUserMap">
-       select * from user where loginid = #{loginid}
+	<select id="getUserAndRoleByLoginId" parameterType="java.lang.String" resultMap="resultUserAndRole">
+       select u.*,r.pk_role,r.role_code,r.role_name,r.`enable` from user u LEFT JOIN role r on u.pk_role = r.pk_role  where u.loginid = #{loginid}
 	</select>
 	
 	<!-- 查询用户的总数 -->

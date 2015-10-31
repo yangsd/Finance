@@ -12,11 +12,11 @@ public class UrlVO {
 
 	private String desc;
 
+	private String active;
+
 	private String isparent;
 
-	private int parent_url;
-
-	private int pk_role;
+	private int parent_id;
 
 	private String enable;
 
@@ -66,6 +66,14 @@ public class UrlVO {
 		this.desc = desc;
 	}
 
+	public String getActive() {
+		return active;
+	}
+
+	public void setActive(String active) {
+		this.active = active;
+	}
+
 	public String getIsparent() {
 		return isparent;
 	}
@@ -74,20 +82,12 @@ public class UrlVO {
 		this.isparent = isparent;
 	}
 
-	public int getParent_url() {
-		return parent_url;
+	public int getParent_id() {
+		return parent_id;
 	}
 
-	public void setParent_url(int parent_url) {
-		this.parent_url = parent_url;
-	}
-
-	public int getPk_role() {
-		return pk_role;
-	}
-
-	public void setPk_role(int pk_role) {
-		this.pk_role = pk_role;
+	public void setParent_id(int parent_id) {
+		this.parent_id = parent_id;
 	}
 
 	public String getEnable() {

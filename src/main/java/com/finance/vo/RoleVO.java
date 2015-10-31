@@ -1,18 +1,20 @@
 package com.finance.vo;
 
+import org.springframework.security.access.ConfigAttribute;
+import org.springframework.security.core.GrantedAuthority;
 
 /**
  * 
  * @author sdyang
  * @date 2015年7月31日 上午9:42:17
  */
-public class RoleVO {
+public class RoleVO implements GrantedAuthority, ConfigAttribute {
 
 	private int pk_role;
 
-	private String role;
+	private String role_code;
 
-	private String desc;
+	private String role_name;
 
 	private String enable;
 
@@ -28,20 +30,20 @@ public class RoleVO {
 		this.pk_role = pk_role;
 	}
 
-	public String getRole() {
-		return role;
+	public String getRole_code() {
+		return role_code;
 	}
 
-	public void setRole(String role) {
-		this.role = role;
+	public void setRole_code(String role_code) {
+		this.role_code = role_code;
 	}
 
-	public String getDesc() {
-		return desc;
+	public String getRole_name() {
+		return role_name;
 	}
 
-	public void setDesc(String desc) {
-		this.desc = desc;
+	public void setRole_name(String role_name) {
+		this.role_name = role_name;
 	}
 
 	public String getEnable() {
@@ -66,6 +68,14 @@ public class RoleVO {
 
 	public void setDr(String dr) {
 		this.dr = dr;
+	}
+
+	public String getAttribute() {
+		return this.role_code;
+	}
+
+	public String getAuthority() {
+		return this.role_code;
 	}
 
 }

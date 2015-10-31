@@ -24,6 +24,7 @@ import org.springframework.web.servlet.ModelAndView;
 import com.finance.constants.UserConstant;
 import com.finance.dao.UserDao;
 import com.finance.exception.BusinessException;
+import com.finance.service.LoginService;
 import com.finance.util.RandomCode;
 import com.finance.vo.UserVO;
 
@@ -37,6 +38,9 @@ public class LoginController {
 
 	@Autowired
 	UserDao userDao;
+	
+	@Autowired
+	LoginService service;
 
 	@RequestMapping(value = "/login", method = RequestMethod.GET)
 	public ModelAndView getLoginPage() {
@@ -156,37 +160,18 @@ public class LoginController {
 	
 	@RequestMapping("/menu")
     @ResponseBody
-    public String getMenu() {
-		String menu = "";
-		String role = getCurrentRole();
+    public String getMenu() throws BusinessException {
 		
-		menu = "<li class=\"start active open\"><a href=\"javascript:;\"><i class=\"icon-home\"></i><span class=\"title\">Dashboard</span><span class=\"selected\"></span><span class=\"arrow\"></span></a>";
-		
-		menu = menu + "<ul class=\"sub-menu\">";
-		
-		menu = menu + "<li class=\"active\"><a href=\"index.html\"><i class=\"icon-bar-chart\"></i>Default Dashboard</a></li>";
-		menu = menu + "<li><a href=\"index_2.html\"><i class=\"icon-bulb\"></i>New Dashboard #1</a></li>";
-		
-		menu = menu + "</ul></li>";
+		String menu = service.getMenuByRole();
 		
 		return menu;
-    }
-	
-	
-	private String getCurrentRole(){		
-		User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-		String role = user.getAuthorities().toString();
-		System.out.println("当前登录角色："+role);
-		return role;
-	}
-	
+    }	
 
 	@RequestMapping(value = "/getCurrentUser")
 	@ResponseBody
 	public String getCurrentUser() throws BusinessException{
-		User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();		
-		UserVO u = userDao.selectUserByLoginId(user.getUsername());
-		return u.getName();
+		UserVO user = (UserVO) SecurityContextHolder.getContext().getAuthentication().getPrincipal();		
+		return user.getName();
 	}
 
 }

@@ -16,7 +16,7 @@ public interface UserDao {
 
 	public UserVO selectUserById(int id) throws BusinessException;
 
-	public UserVO selectUserByLoginId(String loginId) throws BusinessException;
+	public UserVO getUserAndRoleByLoginId(String loginId) throws BusinessException;
 
 	public List<UserVO> selectAllUser() throws BusinessException;
 

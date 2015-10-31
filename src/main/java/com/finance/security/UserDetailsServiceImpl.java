@@ -7,7 +7,6 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
-import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
@@ -31,20 +30,13 @@ public class UserDetailsServiceImpl implements UserDetailsService {
 
 	public UserDetails loadUserByUsername(String loginId)
 			throws UsernameNotFoundException {
-		UserDetails user = null;
-
-		
-		UserVO userVO;
+		UserVO userVO = null;
 		try {
-			userVO = userDao.selectUserByLoginId(loginId);
-
-			user = new User(userVO.getLoginid(), userVO.getPassword().toLowerCase(),
-					true, true, true, true, getAuthorities(userVO.getAccess()));
-
+			userVO = userDao.getUserAndRoleByLoginId(loginId);
 		} catch (BusinessException e) {
 			e.printStackTrace();
 		}
-		return user;
+		return userVO;
 	}
 
 	public Collection<GrantedAuthority> getAuthorities(Integer access) {
